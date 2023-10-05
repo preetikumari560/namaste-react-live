@@ -1,0 +1,5 @@
+{
+  "plugins": [ ["transform-remove-console", { "exclude": [ "error", "warn"] }] ]
+}
+
+// this is page is created to remove console.log, however we can keep console.error and console.warning as per requirement.
