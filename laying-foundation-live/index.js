@@ -18,13 +18,13 @@ const b ="developers"   // variable
 
 const ComponentFunc=()=>true     // written in single line so need to enclose it within (), or return key with {}
 
-//JSX: 
+//*JSX: 
 // It's a JavaScript syntax which is use to create React element ,HTML like syntax, (but not HTML tag) .*rmbr not Html tag inside js.
 // if u write it in multiple line you would need to enclose it inside (). 
 
 
 //*note created React element using JSX :
-//React elemenet(object), It's similar to a normal js variable:
+//React element(object), It's similar to a normal js variable:
 //heading is React element, however whatever written within it is a jsx.
 //we can add functional component inside react element and vice-versa
 
@@ -37,7 +37,7 @@ hello {b}</h1>
 ) 
 
  // it will show object
-console.log(jsxReactElement) // it might niot work bcoz of .babellrc
+console.log(jsxReactElement) // it might not work bcoz of .babellrc
 
 const a =12+"12"    // variable
 
