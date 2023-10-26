@@ -29,12 +29,22 @@ fetchData()
 
 async function fetchData()
 {
+try {
       const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.67003492726483&lng=77.11469986756225&page_type=DESKTOP_WEB_LISTING")
 
       const json = await data.json()
-        console.log(json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-      setRestro(json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-      setFilterRestro(json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        console.log(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+
+      const restroJsonData = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      if(restroJsonData)
+      {
+      setRestro(restroJsonData)
+      setFilterRestro(restroJsonData)
+      console.log("api called")
+      }
+      } catch (error) {
+      console.error("Error fetching data:", error);
+    }
 }
 
 const ratingClick =()=>{
@@ -58,12 +68,13 @@ if(searchRestro)
 
 //avoid component re-rendering, 
 //also called Early Return:
-// if(!Restro)
+// if(!filterRestro)
 // { 
 // return null;
 // }
 
 return (
+console.log("first render",Restro),
 Restro?.length===0?(<Shimmer/>):(<>
 <div className="searchBar">
 <input className="search-input" type="text" placeholder="search" value={searchRestro}
