@@ -23,7 +23,7 @@ const [Restro, setRestro]=useState([])
 
 // Api calling using hook 'useEffect()' and js Fetch function:
 useEffect(()=>{
-fetchData()
+fetchData();
 
 },[])
 
@@ -34,13 +34,13 @@ try {
 
       const json = await data.json()
         console.log(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-
+ 
       const restroJsonData = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
       if(restroJsonData)
       {
       setRestro(restroJsonData)
       setFilterRestro(restroJsonData)
-      console.log("api called")
+      console.log("fetch called")
       }
       } catch (error) {
       console.error("Error fetching data:", error);
@@ -73,6 +73,7 @@ if(searchRestro)
 // return null;
 // }
 
+console.log("body rendered")
 return (
 console.log("first render",Restro),
 Restro?.length===0?(<Shimmer/>):(<>
